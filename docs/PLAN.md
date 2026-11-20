@@ -4,6 +4,12 @@ Product: **Carpool Mauritius**, a free ride-matching web app for **Bojo Solution
 
 Scope lock: this repository is **version A only**. It matches drivers who are already travelling with passengers who want a seat. It does not sell rides, set fares, collect money, split costs, or run a paid or regulated mode. There is no payment code and no feature flag for versions B (paid rides) or C (regulated cost sharing).
 
+## Shipped demo
+
+The demo that builds and deploys is a **fully static** single-page app. Routes live in the URL hash. The public base path is `/carpool-mauritius-a-free/`. Trip data stays in `localStorage`. Matching, seats, verification, and the no-payment rule still live in `src/domain` and are covered by Vitest. GitHub Actions uploads the `dist/` folder to GitHub Pages. There is no server in the demo and no secret in the build.
+
+`src/db/schema.ts` is the record shape a future server would store. The static demo does not open SQLite. Open legal questions and key names are in `docs/OPEN_QUESTIONS.md`.
+
 ## Spec source
 
 The task pointed at an attached file, `Project_A_No_Payment.txt` (`/workspace/uploads/Project_A_No_Payment_8634.txt`). That file was not on disk when implementation started (no `/workspace` mount, and the text was not in Drive, Gmail, or the connected GitHub account). This plan follows the task message itself:
